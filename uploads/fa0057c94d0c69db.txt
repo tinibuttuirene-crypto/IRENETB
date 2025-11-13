@@ -1,0 +1,3 @@
+This is a test file with a .php extension.
+IT CONTAINS NO PHP CODE and is SAFE for upload testing.
+Purpose: To test extension-based upload filters without providing executable code.
