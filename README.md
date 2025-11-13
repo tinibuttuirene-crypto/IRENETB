@@ -228,7 +228,7 @@ Nama	Keterangan
 Nama:	Irene
 NIM:	223611002
 Kelas:	D5
-Dosen Pengampu:	(isi nama dosen kamu)
+Dosen Pengampu:	Semuel Yacobus Padang, S.Kom;M.Kom 
 
 📚 Lisensi
 Proyek ini digunakan untuk keperluan pembelajaran Pemrograman Jaringan.
