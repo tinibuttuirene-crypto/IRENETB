@@ -253,4 +253,4 @@ Contoh:
 Proyek ini digunakan untuk keperluan pembelajaran Pemrograman Jaringan.
 Tidak untuk tujuan komersial atau distribusi ulang tanpa izin dosen pengampu.
 
-<p align="center"> Dibuat dengan ❤ menggunakan <b>PHP Native</b><br/> © 2025 Praktikum Pemrograman Jaringan Universitas Kristen Indonesia Toraja (UKIt) </p>
+<p align="center"> Dibuat dengan ❤ menggunakan <b>PHP Native</b><br/> © 2025 Praktikum Pemrograman Jaringan Universitas Kristen Indonesia Toraja (UKIT) </p>
