@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/Postman-Tested-success?logo=postman" alt="Postman" />
 </p>
 
-<h1 align="center">🧩 API PHP Native — Praktikum Pemrograman Jaringan</h1>
+<h1 align="center">🧩 API PHP NATIVE IRENET — Praktikum Pemrograman Jaringan</h1>
 
 <p align="center">
   RESTful API menggunakan <b>PHP Native tanpa framework</b>.<br/>
@@ -46,15 +46,14 @@ Mendukung fitur:
 
 ### 1️⃣ Persiapan Proyek
 Salin folder ke direktori server kamu:
-C:\laragon\www\api-php-native
-
-sql
-Copy code
+```
+C:\laragon\www\api-php-native-irenet
+```
 
 ### 2️⃣ Import Database
 Buat database apiphp, lalu jalankan SQL berikut di phpMyAdmin:
 
-sql
+```sql
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -64,10 +63,11 @@ CREATE TABLE users (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+```
+
 Tambahkan user admin:
 
-sql
-Copy code
+```sql
 INSERT INTO users (name,email,password_hash,role)
 VALUES (
   'Admin',
@@ -75,35 +75,40 @@ VALUES (
   '$2y$10$brj0BiVc.L3WDXniwIOLmO6i',
   'admin'
 );
-(Ganti $2y$10$brj0BiVc.L3WDXniwIOLmO6i dengan hasil password_hash('Cinta_sejati_takkan_pernah_pudar_oleh_waktu', PASSWORD_DEFAULT).)
+```
 
-3️⃣ Jalankan Server
+(Ganti `$2y$10$brj0BiVc.L3WDXniwIOLmO6i` dengan hasil `password_hash('Cinta_sejati_takkan_pernah_pudar_oleh_waktu', PASSWORD_DEFAULT)`.)
+
+### 3️⃣ Jalankan Server
 Jalankan server lokal:
 
-bash
-Copy code
+```bash
 php -S localhost:8000 -t public
+```
+
 Lalu akses:
 
-bash
-Copy code
+```
 http://localhost:8000/api/v1/health
+```
 
-4️⃣ Akun Default
-makefile
-Copy code
+### 4️⃣ Akun Default
+
+```
 Email: irene@example.com
 Password: Cinta_sejati_takkan_pernah_pudar_oleh_waktu
-📂 Struktur Folder
-pgsql
-Copy code
+```
+
+## 📂 Struktur Folder
+
+```
 API-PHP-NATIVE-IRENET/
 │
 ├── config/
 │   └── env.php
 │
 ├── logs/
-│   └── (file log akan otomatis dibuat di sini, misalnya rate limit atau error)
+│  
 │
 ├── public/
 │   ├── .htaccess
@@ -111,7 +116,7 @@ API-PHP-NATIVE-IRENET/
 │
 ├── src/
 │   ├── Config/
-│   │   └── (file konfigurasi tambahan jika ada)
+│   │   └── Database.php
 │   │
 │   ├── Controllers/
 │   │   ├── AuthController.php
@@ -153,61 +158,69 @@ API-PHP-NATIVE-IRENET/
 ├── openapi_lite.yaml
 ├── README.md
 └── verify_token.php
+```
 
-🧠 Fitur Utama
-Fitur	Deskripsi
-🔹 Routing Manual	Mengatur endpoint API di public/index.php
-🔹 Response JSON	Format response konsisten (Response::json())
-🔹 JWT Auth	Login menghasilkan token JWT, dicek lewat middleware
-🔹 Upload File Aman	Validasi MIME type dan batas 2MB
-🔹 Rate Limiting	Batasi request per IP/token
-🔹 Pagination	Diterapkan di endpoint /users
-🔹 CORS Middleware	Mengizinkan akses dari frontend (browser)
-🔹 Postman + OpenAPI	Dokumentasi dan testing otomatis
+## 🧠 Fitur Utama
 
-🧪 Testing API Menggunakan Postman
-Gunakan koleksi API PHP Native.postman_collection.json untuk uji cepat di Postman.
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🔹 Routing Manual | Mengatur endpoint API di public/index.php |
+| 🔹 Response JSON | Format response konsisten (Response::json()) |
+| 🔹 JWT Auth | Login menghasilkan token JWT, dicek lewat middleware |
+| 🔹 Upload File Aman | Validasi MIME type dan batas 2MB |
+| 🔹 Rate Limiting | Batasi request per IP/token |
+| 🔹 Pagination | Diterapkan di endpoint /users |
+| 🔹 CORS Middleware | Mengizinkan akses dari frontend (browser) |
+| 🔹 Postman + OpenAPI | Dokumentasi dan testing otomatis |
 
-🔑 Login
-Endpoint:
+## 🧪 Testing API Menggunakan Postman
 
-bash
-Copy code
+Gunakan koleksi `API PHP Native.postman_collection.json` untuk uji cepat di Postman.
+
+### 🔑 Login
+
+**Endpoint:**
+
+```
 POST /api/v1/auth/login
-Body (JSON):
+```
 
-json
-Copy code
+**Body (JSON):**
+
+```json
 {
   "email": "irene@example.com",
   "password": "Cinta_sejati_takkan_pernah_pudar_oleh_waktu"
 }
-Setelah berhasil login, Postman otomatis menyimpan token di variabel {{token}}.
+Setelah berhasil login, Postman otomatis menyimpan token di variabel `{{token}}`.
 
-📋 Endpoint Utama
-Method	Endpoint	Deskripsi
-GET	/api/v1/health	Cek status server
-POST	/api/v1/auth/login	Login user
-GET	/api/v1/users	Tampilkan daftar user
-POST	/api/v1/users	Tambahkan user baru
-PUT	/api/v1/users/{id}	Update user
-DELETE	/api/v1/users/{id}	Hapus user
-POST	/api/v1/upload	Upload file (gambar/pdf)
+## 📋 Endpoint Utama
 
-🌐 Dokumentasi OpenAPI-lite
-File dokumentasi API tersedia di:
-openapi-lite.yaml
+| Method | Endpoint | Deskripsi |
+|--------|----------|-----------|
+| GET | /api/v1/health | Cek status server |
+| POST | /api/v1/auth/login | Login user |
+| GET | /api/v1/users | Tampilkan daftar user |
+| POST | /api/v1/users | Tambahkan user baru |
+| PUT | /api/v1/users/{id} | Update user |
+| DELETE | /api/v1/users/{id} | Hapus user |
+| POST | /api/v1/upload | Upload file (gambar/pdf) |
+
+## 🌐 Dokumentasi OpenAPI-lite
+
+File dokumentasi API tersedia di: `openapi-lite.yaml`
 
 Kamu bisa membuka file ini di Swagger Editor:
 👉 https://editor.swagger.io
 dan menampilkan dokumentasi otomatis API kamu.
 
-🧾 Changelog
-Lihat file CHANGELOG.md untuk catatan versi.
+## 🧾 Changelog
+
+Lihat file `CHANGELOG.md` untuk catatan versi.
+
 Contoh:
 
-markdown
-Copy code
+```markdown
 ## [1.0.0] - 2025-11-12
 ### Added
 - Routing dasar
@@ -216,21 +229,27 @@ Copy code
 - Upload File Aman
 - Rate Limiting
 - Dokumentasi OpenAPI & Postman
-🧰 Troubleshooting
-Masalah	Penyebab	Solusi
-❌ 404 Route not found	URL salah	Pastikan path sesuai route di index.php
-⚠ 401 Invalid credentials	Password salah / user belum ada	Periksa tabel users
-⏱ 429 Too Many Requests	Melebihi limit request	Tunggu 1 menit lalu ulangi
-📁 Upload gagal	File terlalu besar atau bukan gambar/pdf	Pastikan ukuran < 2MB dan format valid
+```
 
-👨‍💻 Pengembang
-Nama	Keterangan
-Nama:	Irene
-NIM:	223611002
-Kelas:	D5
-Dosen Pengampu:	Semuel Yacobus Padang, S.Kom;M.Kom 
+## 🧰 Troubleshooting
 
-📚 Lisensi
+| Masalah | Penyebab | Solusi |
+|---------|---------|--------|
+| ❌ 404 Route not found | URL salah | Pastikan path sesuai route di index.php |
+| ⚠ 401 Invalid credentials | Password salah / user belum ada | Periksa tabel users |
+| ⏱ 429 Too Many Requests | Melebihi limit request | Tunggu 1 menit lalu ulangi |
+| 📁 Upload gagal | File terlalu besar atau bukan gambar/pdf | Pastikan ukuran < 2MB dan format valid |
+
+## 👨‍💻 Pengembang
+
+| Nama | Keterangan |
+|------|-----------|
+| Nama | Irene Tini Buttu |
+| NIM | 223611002 |
+| Kelas | D5 |
+| Dosen Pengampu | Semuel Yacobus Padang, S.Kom.,M.Kom |
+
+## 📚 Lisensi
 Proyek ini digunakan untuk keperluan pembelajaran Pemrograman Jaringan.
 Tidak untuk tujuan komersial atau distribusi ulang tanpa izin dosen pengampu.
 

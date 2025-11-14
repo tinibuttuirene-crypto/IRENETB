@@ -19,7 +19,7 @@
         "request": {
           "method": "POST",
           "header": [{ "key": "Content-Type", "value": "application/json" }],
-          "body": { "mode": "raw", "raw": "{\n    \"email\": \"irene@example.com\",\n    \"password\": \"Cinta_sejati_takkan_pernah_pudar_oleh_waktu\"\n}" },
+          "body": { "mode": "raw", "raw": "{\n    \"email\": \"irene@example.com\",\n    \"password\": \"$2y$10$brj0BiVc.L3WDXniwIOLmO6i\"\n}" },
           "url": { "raw": "http://localhost/api-php-native-irenet/public/api/v1/auth/login", "protocol": "http", "host": ["localhost"], "path": ["api-php-native-irenet", "public", "api", "v1", "auth", "login"] }
         }
       },
@@ -39,7 +39,7 @@
             { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" },
             { "key": "Content-Type", "value": "application/json" }
           ],
-          "body": { "mode": "raw", "raw": "{\n    \"name\": \"irene\",\n    \"email\": \"irene@example.com\",\n    \"password\": \"iCinta_sejati_takkan_pernah_pudar_oleh_waktu\",\n    \"role\": \"user\"\n}" },
+          "body": { "mode": "raw", "raw": "{\n    \"name\": \"irene\",\n    \"email\": \"irene@example.com\",\n    \"password\": \"$2y$10$brj0BiVc.L3WDXniwIOLmO6i\",\n    \"role\": \"user\"\n}" },
           "url": { "raw": "http://localhost/api-php-native-irenet/public/api/v1/users", "protocol": "http", "host": ["localhost"], "path": ["api-php-native-irenet", "public", "api", "v1", "users"] }
         }
       },
